@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>3D Solar System — Karen El Khoury</title>
+
+  <meta
+    name="description"
+    content="A 3D solar system built with OpenGL, exploring mesh generation, shaders, Phong lighting, textures and hierarchical animation."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+<body>
+
+
+<!-- ================= NAV ================= -->
+<header class="site-nav">
+
+  <div class="nav-inner">
+
+    <a href="../index.html#top" class="nav-mark">
+      Karen EL KHOURY<span class="dot">.</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+      <a href="../index.html#build">
+        ← Back to projects
+      </a>
+
+      <a
+        href="../assets/resume.pdf"
+        class="nav-resume"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume ↗
+      </a>
+
+    </nav>
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+<section class="proj-hero">
+
+  <div class="section-inner">
+
+    <p class="eyebrow">
+      Computer Graphics — IGR, Télécom Paris
+    </p>
+
+    <h1 class="proj-title">
+      🪐 3D Solar System
+    </h1>
+
+    <p class="proj-lede">
+      A small OpenGL project where I went from rendering a single
+      triangle to building an animated and textured solar system —
+      creating the geometry, lighting, shaders and planetary motion
+      along the way.
+    </p>
+
+    <p class="proj-team">
+      Individual project — Télécom Paris
+    </p>
+
+
+    <ul class="tags proj-tags">
+      <li>OpenGL</li>
+      <li>C++</li>
+      <li>GLSL</li>
+      <li>Phong Lighting</li>
+      <li>Shaders</li>
+      <li>Textures</li>
+      <li>3D Graphics</li>
+    </ul>
+
+  </div>
+
+
+  <!-- ================= HERO MEDIA ================= -->
+  <div class="section-inner proj-hero-media">
+
+    <figure class="proj-figure">
+
+      <div class="photo-frame">
+
+        
+          If you have a video, use this:
+
+        <video
+          controls
+          playsinline
+          muted
+          loop
+          preload="metadata"
+          style="width: 100%; display: block;"
+        >
+          <source
+            src="../assets/img/projects/solarsystem/solarsystem.mp4"
+            type="video/mp4"
+          >
+        </video>
+
+       
+
+
+
+      </div>
+
+      <figcaption>
+        Final solar system with textured planets, lighting,
+        self-rotation and orbital motion.
+      </figcaption>
+
+    </figure>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= CONTENT ================= -->
+<article class="proj-content">
+
+  <div class="section-inner proj-content-inner">
+
+
+
+    <!-- ================= SPHERE ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">01 — Geometry</p>
+
+      <h2>
+        From a triangle to a sphere.
+      </h2>
+
+      <p>
+        Rather than using an existing sphere model, I generated the
+        <strong>sphere mesh procedurally</strong>.
+      </p>
+
+      <p>
+        I divided the sphere into horizontal and vertical segments and
+        computed each vertex position from spherical coordinates.
+        From this I generated the vertex positions, normals,
+        texture coordinates and triangle indices.
+      </p>
+
+      <p>
+        The resulting geometry was then uploaded to OpenGL using
+        <strong>VBOs, an index buffer and a VAO</strong> before being
+        rendered with <code>glDrawElements()</code>.
+      </p>
+
+
+     
+
+    </section>
+
+
+
+    <!-- ================= LIGHTING ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">02 — Lighting</p>
+
+      <h2>
+        Giving the sphere depth.
+      </h2>
+
+      <p>
+        Once the geometry worked, I implemented
+        <strong>Phong lighting</strong> in the fragment shader.
+      </p>
+
+      <p>
+        For every fragment, the final illumination combines
+        <strong>ambient, diffuse and specular</strong> components.
+        The Sun is treated differently as a light-emitting object,
+        while the planets receive illumination from it.
+      </p>
+
+
+
+    </section>
+
+
+
+    <!-- ================= TEXTURES ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">03 — Shaders &amp; Textures</p>
+
+      <h2>
+        Turning spheres into planets.
+      </h2>
+
+      <p>
+        The same sphere geometry could then be reused for every planet.
+        What changes are its <strong>transformation matrix and texture</strong>.
+      </p>
+
+      <p>
+        The vertex shader transforms each vertex using the
+        model, view and projection matrices and passes the transformed
+        normals and texture coordinates to the fragment shader.
+      </p>
+
+      <p>
+        The fragment shader samples the planet texture and combines it
+        with the Phong illumination to produce the final pixel color.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <img
+            src="../assets/img/projects/solarsystem/textured-planets.jpg"
+            alt="Sun Earth and Moon rendered with textures in OpenGL"
+          >
+
+        </div>
+
+        <figcaption>
+          Moving from simple colored spheres to textured celestial bodies.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+
+    <!-- ================= ANIMATION ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">04 — Animation</p>
+
+      <h2>
+        Making the system move.
+      </h2>
+
+      <p>
+        Each planet uses its own transformation matrix composed from
+        <strong>translation, rotation, axial tilt and scaling</strong>.
+      </p>
+
+      <p>
+        Every frame, I use the elapsed time to update the rotation angles.
+        By combining transformations, a planet can rotate around its own
+        axis while simultaneously orbiting the Sun.
+      </p>
+
+      <p>
+        Once this logic worked for the first celestial bodies,
+        I reused the same system to add the remaining planets.
+      </p>
+
+
+    </section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <h2>More projects</h2>
+
+    <p>
+      Back to the rest of what I've built.
+    </p>
+
+    <a
+      href="../index.html#build"
+      class="btn btn-primary"
+    >
+      ← Back to projects
+    </a>
+
+
+    <div class="footer-links">
+
+      <a
+        href="https://github.com/KarenKhou"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/karen-kh2003"
+        target="_blank"
+        rel="noopener"
+      >
+        LinkedIn
+      </a>
+
+      <a
+        href="../assets/resume.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume
+      </a>
+
+    </div>
+
+
+    <p class="footer-copy">
+      © <span id="year"></span> Karen El Khoury.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>

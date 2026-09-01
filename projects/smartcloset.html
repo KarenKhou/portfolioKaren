@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SmartCloset — Karen El Khoury</title>
+
+  <meta
+    name="description"
+    content="SmartCloset — a connected wardrobe combining a Kotlin mobile application, AI, cloud services and Arduino-based IoT automation."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+<body>
+
+
+<!-- ================= NAV ================= -->
+<header class="site-nav">
+
+  <div class="nav-inner">
+
+    <a href="../index.html#top" class="nav-mark">
+      Karen EL KHOURY<span class="dot">.</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+      <a href="../index.html#build">
+        ← Back to projects
+      </a>
+
+      <a
+        href="../assets/resume.pdf"
+        class="nav-resume"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume ↗
+      </a>
+
+    </nav>
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+<section class="proj-hero">
+
+  <div class="section-inner">
+
+    <p class="eyebrow">
+      Mobile Development · AI · IoT — ESIB
+    </p>
+
+    <h1 class="proj-title">
+      👗 SmartCloset
+    </h1>
+
+    <p class="proj-lede">
+      A connected wardrobe combining a mobile application, AI,
+      cloud services and IoT — designed to make organizing clothes
+      and choosing what to wear a little smarter.
+    </p>
+
+    <p class="proj-team">
+      Final-year team project — supervised by Hanan J. Farhat
+    </p>
+
+
+    <div class="proj-stats">
+
+      <div class="proj-stat">
+        <span class="proj-stat-num">📱</span>
+        <span class="proj-stat-label">Mobile App</span>
+      </div>
+
+      <div class="proj-stat">
+        <span class="proj-stat-num">🤖</span>
+        <span class="proj-stat-label">AI</span>
+      </div>
+
+      <div class="proj-stat">
+        <span class="proj-stat-num">☁️</span>
+        <span class="proj-stat-label">Cloud Backend</span>
+      </div>
+
+      <div class="proj-stat">
+        <span class="proj-stat-num">🔌</span>
+        <span class="proj-stat-label">IoT</span>
+      </div>
+
+    </div>
+
+
+    <ul class="tags proj-tags">
+      <li>Kotlin</li>
+      <li>Jetpack Compose</li>
+      <li>Supabase</li>
+      <li>Arduino</li>
+      <li>FastAPI</li>
+      <li>IoT</li>
+      <li>Machine Learning</li>
+    </ul>
+
+  </div>
+
+
+  <!-- ================= HERO IMAGE ================= -->
+  <div class="section-inner proj-hero-media">
+
+    <figure class="proj-figure">
+
+      <div class="photo-frame">
+
+        <img
+          src="../assets/img/projects/smartcloset/smartcloset.png"
+          alt="SmartCloset mobile application"
+        >
+
+      </div>
+
+      <figcaption>
+        SmartCloset — bringing a physical wardrobe and a digital closet together.
+      </figcaption>
+
+    </figure>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= CONTENT ================= -->
+<article class="proj-content">
+
+  <div class="section-inner proj-content-inner">
+
+
+    <!-- ================= IDEA ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">The idea</p>
+
+      <h2>
+        What if your closet actually knew what was inside it?
+      </h2>
+
+      <p>
+        SmartCloset is a connected wardrobe that lets users digitize
+        their clothes, organize their closet, track what they wear and
+        receive outfit suggestions depending on their
+        <strong>style, season and occasion.</strong>
+      </p>
+
+      <p>
+        We wanted to go beyond a purely digital wardrobe, so we also
+        connected the application to the physical closet through
+        <strong>Arduino-based IoT automation.</strong>
+      </p>
+
+    </section>
+
+
+
+    <!-- ================= FEATURES ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">The experience</p>
+
+      <h2>
+        One wardrobe, from the closet door to the phone.
+      </h2>
+
+
+      <div class="proj-table-wrap">
+
+        <table class="proj-table">
+
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td><strong>Digital Closet</strong></td>
+              <td>
+                Add and organize clothes directly from the mobile application.
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>AI Clothing Detection</strong></td>
+              <td>
+                Automatically remove the background and detect clothing
+                information from uploaded images.
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Outfit Suggestions</strong></td>
+              <td>
+                Recommend outfits according to style, season and occasion.
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Wardrobe History</strong></td>
+              <td>
+                Track clothing usage and previous outfits through a visual calendar.
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Connected Closet</strong></td>
+              <td>
+                Detect closet-door activity, trigger LED feedback and
+                automatically capture clothing photos.
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= APP ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">01 — Mobile App</p>
+
+      <h2>
+        Building the interface around the wardrobe.
+      </h2>
+
+      <p>
+        My main responsibility was developing the
+        <strong>Android application in Kotlin with Jetpack Compose.</strong>
+      </p>
+
+      <p>
+        I implemented the main user flows around the digital wardrobe:
+        adding clothes, browsing the closet, displaying recommendations,
+        viewing outfit history and connecting the different services
+        behind the application.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <img
+            src="../assets/img/projects/smartcloset/screens.jpg"
+            alt="SmartCloset Android application screens"
+          >
+
+        </div>
+
+        <figcaption>
+          SmartCloset mobile interface — digital wardrobe, outfits and history.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+
+    <!-- ================= BACKEND ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">02 — Backend &amp; Integration</p>
+
+      <h2>
+        Connecting the pieces behind the interface.
+      </h2>
+
+      <p>
+        I also worked on the <strong>backend and end-to-end integration</strong>
+        of the system, using Supabase for the application's cloud services
+        and connecting the mobile experience to the AI services.
+      </p>
+
+      <p>
+        When a user adds a garment, the image can pass through the AI
+        pipeline before the processed information is returned to the
+        application and stored as part of the user's digital wardrobe.
+      </p>
+
+
+      <div class="proj-table-wrap">
+
+        <table class="proj-table">
+
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td><strong>Android App</strong></td>
+              <td>Kotlin + Jetpack Compose user experience</td>
+            </tr>
+
+            <tr>
+              <td><strong>Supabase</strong></td>
+              <td>Cloud data and application services</td>
+            </tr>
+
+            <tr>
+              <td><strong>FastAPI</strong></td>
+              <td>Expose the AI models to the application</td>
+            </tr>
+
+            <tr>
+              <td><strong>Arduino</strong></td>
+              <td>Connect the physical wardrobe to the digital system</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= AI ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">03 — AI Integration</p>
+
+      <h2>
+        Bringing my teammates' models into the app.
+      </h2>
+
+      <p>
+        The machine-learning models were developed by my teammates
+        <strong>Marilyn Abou Tayeh, Lea Chamseddine and Fatima AlRabih.</strong>
+      </p>
+
+      <p>
+        Their work covered
+        <strong>background removal, clothing detection and intelligent
+        outfit recommendations.</strong>
+        My role was to integrate these models into the application and
+        backend so that they became part of the actual user experience.
+      </p>
+
+      <p>
+        This meant turning separate AI components into a complete flow:
+        from a photo taken or uploaded by the user, through processing,
+        to information that could actually be displayed and used
+        inside SmartCloset.
+      </p>
+
+    </section>
+
+
+
+    <!-- ================= IOT ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">04 — IoT</p>
+
+      <h2>
+        Connecting the app to a real closet.
+      </h2>
+
+      <p>
+        The part that made SmartCloset more than a mobile application
+        was the physical wardrobe itself.
+      </p>
+
+      <p>
+        I implemented the <strong>Arduino-based IoT automation</strong>
+        used to detect interactions with the closet door and trigger
+        real-time actions such as LED feedback and automatic photo capture.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <video
+          controls
+          playsinline
+          muted
+          loop
+          preload="metadata"
+          style="width: 100%; display: block;"
+        >
+          <source
+            src="../assets/img/projects/smartcloset/VIDMDP.mp4"
+            type="video/mp4"
+          >
+        </video>
+
+        </div>
+
+        <figcaption>
+          The physical side of SmartCloset — connecting wardrobe activity
+          to the digital application.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+
+    <!-- ================= MY CONTRIBUTION ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">My contribution</p>
+
+      <h2>
+        Making the whole system work together.
+      </h2>
+
+      <p>
+        SmartCloset was very much a team project, but my work focused on
+        the parts that connected the system together.
+      </p>
+
+      <ul class="proj-list">
+        <li>Developed the Android mobile application in Kotlin</li>
+        <li>Built and connected the backend services</li>
+        <li>Integrated the team's AI models into the application flow</li>
+        <li>Implemented the Arduino-based IoT automation</li>
+        <li>Connected the physical wardrobe with the digital experience</li>
+      </ul>
+
+    </section>
+
+
+
+  </div>
+
+</article>
+
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <h2>More projects</h2>
+
+    <p>
+      Back to the rest of what I've built.
+    </p>
+
+    <a
+      href="../index.html#build"
+      class="btn btn-primary"
+    >
+      ← Back to projects
+    </a>
+
+
+    <div class="footer-links">
+
+      <a
+        href="https://github.com/KarenKhou"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/karen-kh2003"
+        target="_blank"
+        rel="noopener"
+      >
+        LinkedIn
+      </a>
+
+      <a
+        href="../assets/resume.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume
+      </a>
+
+    </div>
+
+
+    <p class="footer-copy">
+      © <span id="year"></span> Karen El Khoury.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>

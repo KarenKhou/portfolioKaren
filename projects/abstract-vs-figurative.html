@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hand-Crafted Visual Features for Art Classification — Karen El Khoury</title>
+  <meta
+    name="description"
+    content="My contribution to a computer vision project on abstract vs. figurative art: designing 31 interpretable visual features and evaluating them with machine learning."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="site-nav">
+  <div class="nav-inner">
+
+    <a href="../index.html#top" class="nav-mark">
+      Karen EL KHOURY<span class="dot">.</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#build">← Back to projects</a>
+      <a
+        href="../assets/resume.pdf"
+        class="nav-resume"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume ↗
+      </a>
+    </nav>
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+
+
+<!-- ================= PROJECT HERO ================= -->
+<section class="proj-hero">
+
+  <div class="section-inner">
+
+    <p class="eyebrow">
+      AI &amp; Computer Vision — 4IM06 Project, Télécom Paris
+    </p>
+
+    <h1 class="proj-title">
+      🎨 Can AI classify abstract and figurative art?
+    </h1>
+
+    <p class="proj-lede">
+      My contribution to a team project on abstract vs. figurative art
+      classification was to explore the problem from an interpretable
+      computer-vision perspective: instead of asking a neural network to
+      learn its own representation, I designed visual measurements for
+      color, texture, edges, brushstrokes, composition and frequency —
+      and tested how far they could go.
+    </p>
+
+    <p class="proj-team">
+      Team project with Marie-José Tannoury, Charbel Abou Kheir &amp;
+      Sergio Sanchez — supervised by Henri Maître &amp; Loïc Le Folgoc.
+    </p>
+
+
+    <div class="proj-stats">
+
+      <div class="proj-stat">
+        <span class="proj-stat-num">31</span>
+        <span class="proj-stat-label">features designed</span>
+      </div>
+
+      <div class="proj-stat">
+        <span class="proj-stat-num">6</span>
+        <span class="proj-stat-label">visual feature families</span>
+      </div>
+
+      <div class="proj-stat">
+        <span class="proj-stat-num">15</span>
+        <span class="proj-stat-label">features in the best subset</span>
+      </div>
+
+      <div class="proj-stat">
+        <span class="proj-stat-num">81.4%</span>
+        <span class="proj-stat-label">balanced accuracy</span>
+      </div>
+
+    </div>
+
+
+    <ul class="tags proj-tags">
+      <li>Computer Vision</li>
+      <li>Feature Engineering</li>
+      <li>Image Processing</li>
+      <li>SVM</li>
+      <li>OpenCV</li>
+      <li>Texture Analysis</li>
+      <li>Machine Learning</li>
+    </ul>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTENT ================= -->
+<article class="proj-content">
+
+  <div class="section-inner proj-content-inner">
+
+
+    <!-- ================= THE QUESTION ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">The question</p>
+
+      <h2>
+        Can we describe abstraction with measurable visual properties?
+      </h2>
+
+      <p>
+        The team explored four different ways of solving the problem.
+        <strong>My part was the hand-crafted feature approach.</strong>
+        I wanted to see whether properties that humans can understand and
+        describe — color diversity, texture complexity, edge structure,
+        brushstroke direction or frequency content — could be converted
+        into numerical features and used to distinguish the two categories.
+      </p>
+
+    </section>
+
+
+    <!-- ================= MY APPROACH ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">My approach</p>
+
+      <h2>
+        Turning paintings into 31 interpretable numbers.
+      </h2>
+
+      <p>
+        Instead of feeding the raw image directly to a deep neural network,
+        I built a feature-extraction pipeline that transforms every painting
+        into a vector of <strong>31 hand-crafted visual features</strong>.
+      </p>
+
+
+      <div class="proj-table-wrap">
+
+        <table class="proj-table">
+
+          <thead>
+            <tr>
+              <th>Feature family</th>
+              <th>What I wanted to capture</th>
+              <th>Examples</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td><strong>Color</strong></td>
+              <td>
+                How varied, saturated and perceptually diverse the palette is.
+              </td>
+              <td>
+                Saturation, brightness, hue entropy,
+                dominant colors, Lab color spread
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Edges</strong></td>
+              <td>
+                Whether the image contains coherent object boundaries
+                or more chaotic edge structures.
+              </td>
+              <td>
+                Canny density, orientation entropy,
+                contour length, curvature
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Texture</strong></td>
+              <td>
+                The complexity and regularity of local surface patterns.
+              </td>
+              <td>
+                LBP entropy, GLCM contrast,
+                homogeneity, energy, correlation
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Brushstrokes</strong></td>
+              <td>
+                Whether strokes have strong directions and
+                how much their widths vary.
+              </td>
+              <td>
+                Stroke anisotropy, stroke width variance
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Composition</strong></td>
+              <td>
+                How visual information is distributed across the painting.
+              </td>
+              <td>
+                Symmetry, quadrant balance,
+                edge-frame ratio
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Frequency</strong></td>
+              <td>
+                The amount and distribution of fine versus
+                coarse visual detail.
+              </td>
+              <td>
+                FFT frequency ratio, entropy,
+                radial falloff
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CLASSIFICATION ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">Classification</p>
+
+      <h2>
+        From visual measurements to a decision boundary.
+      </h2>
+
+      <p>
+        Once every painting had been converted into a feature vector, I
+        standardized the features and compared several classical machine
+        learning classifiers.
+      </p>
+
+
+      <div class="proj-table-wrap">
+
+        <table class="proj-table">
+
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Balanced accuracy</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Random Forest</td>
+              <td>≈ 0.66</td>
+            </tr>
+
+            <tr>
+              <td>KNN</td>
+              <td>≈ 0.66</td>
+            </tr>
+
+            <tr>
+              <td>Gradient Boosting</td>
+              <td>≈ 0.71</td>
+            </tr>
+
+            <tr>
+              <td>Logistic Regression</td>
+              <td>≈ 0.77</td>
+            </tr>
+
+            <tr>
+              <td>SVM — RBF kernel</td>
+              <td class="proj-table-best">≈ 0.80</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <p>
+        The <strong>RBF SVM</strong> performed best. Unlike a linear
+        classifier, the RBF kernel can model non-linear interactions between
+        the visual descriptors — useful here because no single property
+        defines whether a painting is abstract.
+      </p>
+
+      <p>
+        I then tuned the SVM using a grid search over
+        <strong>C</strong> and <strong>γ</strong>. The strongest region was
+        around <strong>C = 1</strong> and <strong>γ = 0.1</strong>.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame photo-placeholder">
+          <!-- Replace with:
+          <img
+            src="../assets/img/projects/artvsfig/gridsearch_heatmap.png"
+            alt="Grid search heatmap for C and gamma of the RBF SVM"
+          >
+          -->
+
+          <span>
+            SVM grid-search heatmap — C × γ
+          </span>
+        </div>
+
+        <figcaption>
+          Grid search for the RBF SVM. High γ values consistently reduced
+          performance, while the best region appeared around moderate
+          regularization and γ.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+    <!-- ================= ABLATION ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">Feature selection</p>
+
+      <h2>
+        More features did not mean a better model.
+      </h2>
+
+      <p>
+        One of the most interesting parts of my experiments was testing
+        whether all 31 features were actually useful.
+      </p>
+
+      <p>
+        I ranked the features using Random Forest importance, then progressively
+        removed the least important features and re-evaluated the SVM.
+        The experiment went from all 31 features down to a single feature.
+      </p>
+
+      <p>
+        Surprisingly, performance did not decrease immediately.
+        The best result was obtained with only
+        <strong>15 features</strong>, reaching approximately
+        <strong>0.814 balanced accuracy</strong>.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame photo-placeholder">
+          <!-- Replace with:
+          <img
+            src="../assets/img/projects/artvsfig/ablation_curve.png"
+            alt="Feature ablation curve showing SVM balanced accuracy as features are removed"
+          >
+          -->
+
+          <span>
+            Ablation curve — 31 → 1 feature
+          </span>
+        </div>
+
+        <figcaption>
+          Removing weak features initially maintains — and sometimes improves —
+          performance. The strongest subset contained 15 features.
+        </figcaption>
+
+      </figure>
+
+
+      <h3>The 15 features that survived</h3>
+
+      <div class="proj-table-wrap">
+
+        <table class="proj-table">
+
+          <thead>
+            <tr>
+              <th>Family</th>
+              <th>Selected features</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td><strong>Color</strong></td>
+              <td>
+                mean saturation, saturation std.,
+                mean brightness, hue entropy,
+                saturation entropy
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Edges</strong></td>
+              <td>
+                orientation entropy,
+                contour mean length,
+                contour curvature
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Texture</strong></td>
+              <td>
+                LBP entropy,
+                GLCM contrast,
+                homogeneity,
+                correlation
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Strokes</strong></td>
+              <td>
+                stroke anisotropy,
+                stroke width variance
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Frequency</strong></td>
+              <td>
+                radial falloff
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <p>
+        Color and texture descriptors were particularly well represented in
+        the final subset. Interestingly, the composition features disappeared
+        entirely.
+      </p>
+
+    </section>
+</div>
+</article>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <h2>More projects</h2>
+
+    <p>
+      Back to the rest of what I've built.
+    </p>
+
+    <a
+      href="../index.html#build"
+      class="btn btn-primary"
+    >
+      ← Back to projects
+    </a>
+
+
+    <div class="footer-links">
+
+      <a
+        href="https://github.com/KarenKhou"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/karen-kh2003"
+        target="_blank"
+        rel="noopener"
+      >
+        LinkedIn
+      </a>
+
+      <a
+        href="../assets/resume.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume
+      </a>
+
+    </div>
+
+
+    <p class="footer-copy">
+      © <span id="year"></span> Karen El Khoury.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>

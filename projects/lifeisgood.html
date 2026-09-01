@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Life Is Good</title>
+
+  <meta
+    name="description"
+    content="Life Is Good a computer graphics project exploring geometry processing, physical simulation and rendering."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+
+<!-- ================= NAV ================= -->
+<header class="site-nav">
+
+  <div class="nav-inner">
+
+    <a href="../index.html#top" class="nav-mark">
+      Karen EL KHOURY<span class="dot">.</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+      <a href="../index.html#build">
+        ← Back to projects
+      </a>
+
+      <a
+        href="../assets/resume.pdf"
+        class="nav-resume"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume ↗
+      </a>
+
+    </nav>
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+<section class="proj-hero">
+
+  <div class="section-inner">
+
+    <p class="eyebrow">
+      Computer Graphics — IGR, Télécom Paris
+    </p>
+
+    <h1 class="proj-title">
+      🌼 Life Is Good
+    </h1>
+
+    <p class="proj-lede">
+      A playful 3D scene I built as a playground for computer graphics:
+      geometry processing, physical simulation, fluid simulation,
+      real-time lighting and ray tracing — all inside one slightly
+      chaotic flower field.
+    </p>
+
+    <p class="proj-team">
+      Individual project, Télécom Paris
+    </p>
+
+
+   
+
+    <ul class="tags proj-tags">
+      <li>Computer Graphics</li>
+      <li>Geometry Processing</li>
+      <li>SPH</li>
+      <li>Physics Simulation</li>
+      <li>Ray Tracing</li>
+      <li>Shadow Mapping</li>
+      <li>OpenGL</li>
+    </ul>
+
+    <div class="proj-links">
+
+  <a
+    href="../assets/projects/LifeIsGood_ReportKarenELKHOURY.pdf"
+    class="btn btn-ghost"
+    target="_blank"
+    rel="noopener"
+  >
+    Read the full report ↗
+  </a>
+
+</div>
+
+  </div>
+
+
+  <!-- HERO IMAGE -->
+  <div class="section-inner proj-hero-media">
+
+    
+
+    <figure class="proj-figure">
+
+      <div class="photo-frame">
+
+       
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            style="width: 100%; display: block;"
+          >
+
+            <source
+              src="../assets/img/projects/lifeisgood/recdemo.mp4"
+              type="video/mp4"
+            >
+
+            Your browser does not support HTML video.
+
+          </video>
+
+      </div>
+
+      <figcaption>
+        The final interactive scene — a flower field, a falling apple,
+        a rhino, a bee and a villager who takes disco mode very seriously.
+      </figcaption>
+
+    </figure>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= CONTENT ================= -->
+<article class="proj-content">
+
+  <div class="section-inner proj-content-inner">
+
+
+    <!-- ================= PROJECT IDEA ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">The idea</p>
+
+      <h2>
+        One scene. A lot of computer graphics.
+      </h2>
+
+      <p>
+        Life Is Good started as a simple, deliberately playful scene:
+        a Minecraft villager walks through a flower field alongside a bee
+        and a rhino, while an apple hangs from a low-poly tree.
+      </p>
+
+      <p>
+        Then things start moving. The apple falls and bounces,
+        fluid particles enter the scene, and switching to
+        <strong>disco mode</strong> changes the lighting and makes
+        the villager start dancing.
+      </p>
+
+      <p>
+        Behind the silly scene, the goal was to experiment with several
+        fundamental areas of computer graphics and bring them together
+        inside the same project.
+      </p>
+
+    </section>
+
+
+
+    <!-- ================= VIDEO ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">Project demo</p>
+
+      <h2>
+        Better seen in motion.
+      </h2>
+
+      <p>
+        A lot of this project is difficult to communicate through
+        screenshots alone. The demo shows the scene itself as well as
+        the geometry transformations, animations, simulation and
+        rendering experiments I implemented.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            style="width: 100%; display: block;"
+          >
+
+            <source
+              src="../assets/img/projects/lifeisgood/PresentationKarenELKHOURY.mp4"
+              type="video/mp4"
+            >
+
+            Your browser does not support HTML video.
+
+          </video>
+
+        </div>
+
+        <figcaption>
+          Life Is Good — full project presentation recording.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+
+    <!-- ================= GEOMETRY ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">01 — Geometry Processing</p>
+
+      <h2>
+        Changing the geometry itself.
+      </h2>
+
+      <p>
+        I implemented several operations directly on the meshes:
+        <strong>Laplacian smoothing, Taubin smoothing,
+        curvature-weighted smoothing and mesh decimation.</strong>
+      </p>
+
+      <p>
+        Laplacian smoothing successfully removed small geometric
+        irregularities, but also revealed its classic drawback:
+        repeated smoothing causes the mesh to shrink. I therefore
+        implemented Taubin smoothing, which alternates positive and
+        negative Laplacian steps to smooth the surface while better
+        preserving its volume.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            style="width: 100%; display: block;"
+          >
+
+            <source
+            src="../assets/img/projects/lifeisgood/laplacian.mp4"
+              type="video/mp4"
+            >
+
+            Your browser does not support HTML video.
+
+          </video>
+
+        </div>
+
+        <figcaption>
+          Rhino mesh before and after Laplacian smoothing.
+        </figcaption>
+
+      </figure>
+
+
+      <p>
+        I also implemented <strong>mesh decimation through edge collapse</strong>.
+        This became useful later when ray tracing the scene:
+        reducing unnecessary triangles could substantially reduce
+        rendering time while keeping the overall shape recognizable.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <img
+            src="../assets/img/projects/lifeisgood/apple.png"
+            alt="Apple mesh at different levels of mesh decimation"
+          >
+
+        </div>
+
+        <figcaption>
+          Progressive mesh decimation of the apple.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+
+    <!-- ================= SIMULATION ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">02 — Simulation</p>
+
+      <h2>
+        Making things fall, bounce and flow.
+      </h2>
+
+      <p>
+        The apple is not simply animated along a predefined path.
+        I adapted a rigid-body solver to model it as a sphere affected
+        by <strong>gravity, collision, restitution, friction and torque</strong>,
+        allowing it to fall, bounce and roll across the ground.
+
+        I also have some other movements in my scene : The villager is dancing, and the bee is flying around!
+      </p>
+
+
+    </section>
+
+
+
+    <!-- ================= RENDERING ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">03 — Rendering</p>
+
+      <h2>
+        From real-time shadows to my own ray tracer.
+      </h2>
+
+      <p>
+        For the interactive scene, I implemented
+        <strong>shadow mapping</strong> using a two-pass rendering
+        pipeline. The scene also supports several dynamic light sources,
+        including the animated colored lights used by disco mode.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+            <video
+            controls
+            playsinline
+            preload="metadata"
+            style="width: 100%; display: block;"
+          >
+
+            <source
+              src="../assets/img/projects/lifeisgood/shadow.mp4"
+              type="video/mp4"
+            >
+
+            Your browser does not support HTML video.
+
+          </video>
+
+
+        </div>
+
+      </figure>
+
+
+      <p>
+        Separately, I built a small educational
+        <strong>ray tracer from scratch</strong>.
+        It generates primary rays from a pinhole camera, performs
+        ray-triangle intersections using Möller–Trumbore, interpolates
+        texture coordinates, applies Lambertian shading and casts
+        secondary rays for hard shadows.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <img
+            src="../assets/img/projects/lifeisgood/raytracing.png"
+            alt="Evolution of the ray tracing implementation"
+          >
+
+        </div>
+
+        <figcaption>
+          Building the ray tracer progressively: normals, shading,
+          textures and finally shadows.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+
+    <!-- ================= TAKEAWAY ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">I really loved creating this scene</p>
+
+      <p>
+        This project gave me the freedom to connect techniques that I had
+        previously encountered separately: mesh processing affects rendering
+        cost, simulation introduces numerical stability problems, and
+        rendering choices quickly expose performance limitations.
+      </p>
+
+      <p>
+        More than producing a polished scene, I enjoyed using
+        <em>Life Is Good</em> as an experimental playground 
+        implementing algorithms, breaking them, understanding why,
+        and gradually making the scene come alive!!
+      </p>
+
+    </section>
+
+
+  </div>
+
+</article>
+
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <h2>More projects</h2>
+
+    <p>
+      Back to the rest of what I've built.
+    </p>
+
+    <a
+      href="../index.html#build"
+      class="btn btn-primary"
+    >
+      ← Back to projects
+    </a>
+
+
+    <div class="footer-links">
+
+      <a
+        href="https://github.com/KarenKhou"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/karen-kh2003"
+        target="_blank"
+        rel="noopener"
+      >
+        LinkedIn
+      </a>
+
+      <a
+        href="../assets/resume.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume
+      </a>
+
+    </div>
+
+
+    <p class="footer-copy">
+      © <span id="year"></span> Karen El Khoury.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>

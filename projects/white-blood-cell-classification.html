@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>White Blood Cell Classification — Karen El Khoury</title>
+<meta name="description" content="Classifying 13 types of white blood cells from microscopy images — from hand-crafted features to a fine-tuned EfficientNet-B0, F1 macro 0.7757.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-mark">Karen EL KHOURY<span class="dot">.</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#build">← Back to projects</a>
+      <a href="../assets/resume.pdf" class="nav-resume" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= PROJECT HERO ================= -->
+<section class="proj-hero">
+  <div class="section-inner">
+    <p class="eyebrow">AI &amp; Computer Vision — IMA205 Challenge, Télécom Paris</p>
+    <h1 class="proj-title">🩸 White Blood Cell Classification</h1>
+    <p class="proj-lede">Classifying 28,901 microscopy images into 13 white blood cell types, under a
+      heavy class imbalance, starting from hand-crafted morphology, color and texture features, then
+      experimenting with CNNs</p>
+
+    <div class="proj-stats">
+      <div class="proj-stat"><span class="proj-stat-num">0.7757</span><span class="proj-stat-label">F1 macro (best)</span></div>
+      <div class="proj-stat"><span class="proj-stat-num">28,901</span><span class="proj-stat-label">microscopy images</span></div>
+      <div class="proj-stat"><span class="proj-stat-num">13</span><span class="proj-stat-label">cell classes</span></div>
+      <div class="proj-stat"><span class="proj-stat-num">83</span><span class="proj-stat-label">hand-crafted features</span></div>
+    </div>
+
+    <ul class="tags proj-tags">
+      <li>Deep Learning</li><li>PyTorch</li><li>CNN</li><li>EfficientNet</li><li>Medical AI</li><li>Kaggle</li>
+    </ul>
+
+    <div class="proj-links">
+      <a href="../assets/projects/wbc-report.pdf" class="btn btn-primary" target="_blank" rel="noopener">Read the full report (PDF)</a>
+      <a href="https://github.com/KarenKhou/WhiteBloodCellsClassification" class="btn btn-ghost" target="_blank" rel="noopener">Code on GitHub ↗</a>
+    </div>
+  </div>
+
+
+<!-- ================= CONTENT ================= -->
+<article class="proj-content">
+  <div class="section-inner proj-content-inner">
+
+    <section class="proj-section">
+      <p class="proj-kicker">The challenge</p>
+      <h2>13 classes, wildly unbalanced.</h2>
+      <p>The real difficulty wasn't the images themselves — it was the imbalance. Neutrophils (SNE)
+        alone account for over 13,000 images, while classes like PMY or PLY have barely a handful. Any
+        model that just chases accuracy will happily ignore the rare classes, so I evaluated everything
+        with macro F1 instead, which treats every class equally regardless of how many examples it has.</p>
+
+      <figure class="proj-figure">
+        <div class="photo-frame">
+          <img src="../assets/img/projects/wbc/fig1-class-distribution.jpg" alt="Bar chart of image counts per class, showing SNE and LY dominating and PMY, PC, PLY nearly empty">
+        </div>
+        <figcaption>Class distribution — the smallest class has 11 images, the largest over 13,000.</figcaption>
+      </figure>
+    </section>
+
+    <section class="proj-section">
+      <p class="proj-kicker">Round 1</p>
+      <h2>Hand-crafted features, the classical way.</h2>
+      <p>Before reaching for a neural network, I wanted to see how far classical machine learning could
+        get with features I designed myself. That meant first segmenting each image to isolate the
+        nucleus and cytoplasm — features only mean something if they're measured on the right region,
+        not the whole image.</p>
+
+      <h3 class="proj-h3">Segmenting the cells</h3>
+      <p>I went through three segmentation strategies before landing on something reliable:</p>
+      <ul class="proj-list">
+        <li><strong>Otsu thresholding</strong> — fast, but too sensitive to lighting and low-contrast images to be stable.</li>
+        <li><strong>KMeans on RGB pixels</strong> — better in places, but it kept picking the wrong cluster on harder images.</li>
+        <li><strong>Hierarchical Multi-Otsu</strong> — the one that stuck: segment the nucleus with a 3-class Multi-Otsu, clean it up morphologically, dilate it into a region of interest, then re-segment inside that ROI to separate nucleus from cytoplasm.</li>
+      </ul>
+
+      <figure class="proj-figure">
+        <div class="photo-frame">
+          <img src="../assets/img/projects/wbc/fig3-multiotsu-pipeline.jpg" alt="Eight-step segmentation pipeline grid showing original image, thresholding, cleaned nucleus mask, region of interest, and final overlay for two example cells">
+        </div>
+        <figcaption>The final pipeline, step by step: global thresholding → clean nucleus → ROI → internal
+          thresholding → connected-region filtering → final mask → overlay.</figcaption>
+      </figure>
+
+      <h3 class="proj-h3">83 features, three families</h3>
+      <p>From the segmented nucleus, cytoplasm, and whole cell, I extracted 83 descriptors: 23
+        morphological (area, perimeter, circularity, the nucleus-to-cytoplasm ratio that hematologists
+        actually care about), 42 color features across RGB, HSV, and LAB, and 18 GLCM texture
+        descriptors (contrast, homogeneity, energy, correlation).</p>
+
+      <figure class="proj-figure proj-figure--narrow">
+        <div class="photo-frame">
+          <img src="../assets/img/projects/wbc/fig4-pca-projection.jpg" alt="PCA scatter plot of the 83 features in 2D, showing heavy overlap between classes with no clean clusters">
+        </div>
+        <figcaption>PCA projection of the 83 features — classes overlap heavily, meaning the boundaries
+          between them are non-linear.</figcaption>
+      </figure>
+
+      <p>That overlap explained a lot of what followed: linear separability just wasn't there, so I moved
+        straight to models built for non-linear boundaries.</p>
+
+      <div class="proj-table-wrap">
+        <table class="proj-table">
+          <thead><tr><th>Model</th><th>F1 macro</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Random Forest (600 trees, balanced)</td><td>0.39</td><td>High accuracy (~0.86), but biased toward majority classes</td></tr>
+            <tr><td>Balanced Random Forest</td><td>0.35</td><td>Under-sampling majority classes lost useful information</td></tr>
+            <tr><td>XGBoost (800 estimators)</td><td>0.45</td><td>Better at modeling non-linear interactions</td></tr>
+            <tr><td>SVM, RBF kernel (tuned)</td><td class="proj-table-best">0.56</td><td>Best classical result — C=5, γ=scale via grid search</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <p class="proj-kicker">Round 2</p>
+      <h2>Handing it over to deep learning.</h2>
+      <p>0.56 was a ceiling, not a wall I could push through. Hand-crafted features are only as good as
+        the segmentation they're built on, and they compress each image down to 83 numbers — which
+        throws away exactly the fine spatial detail that separates biologically similar cell types. That
+        pushed me toward CNNs, which learn their own representations straight from the raw image.</p>
+      <p>Since the dataset wasn't large enough to train a deep network from scratch, I used transfer
+        learning on ImageNet-pretrained EfficientNet-B0 and ResNet18 — resizing to 224×224, standard
+        ImageNet normalization, and augmentation (crops, flips, rotation, color jitter) kept deliberately
+        mild after more aggressive settings made training unstable.</p>
+
+      <h3 class="proj-h3">What actually moved the score</h3>
+      <ol class="proj-steps">
+        <li><strong>Baseline — EfficientNet-B0, class weights:</strong> 0.67. Solid, but still penalizing
+          rare classes.</li>
+        <li><strong>Swapping class weights for a WeightedRandomSampler:</strong> 0.70. Rebalancing the
+          batches directly mattered more than reweighting the loss.</li>
+        <li><strong>ResNet18 vs. EfficientNet:</strong> ResNet18 plateaued at 0.67 regardless of
+          configuration — a capacity ceiling, not a variance problem. EfficientNet kept improving.</li>
+        <li><strong>Hybrid EfficientNet + ResNet18 (60/40) with TTA:</strong> 0.76. Two models making
+          different mistakes, averaged together, reduce variance more than either alone.</li>
+        <li><strong>5-fold stratified cross-validation on EfficientNet-B0:</strong> 0.70 → <strong>0.7757</strong>,
+          the best score of the project — averaging 5 models trained on different splits generalizes far
+          better than trusting one split.</li>
+        <li><strong>Mixup:</strong> counter-intuitively hurt performance (0.7525). Interpolating between
+          two cell images creates morphologically unrealistic training examples — blood cells have
+          precise, discrete structures that don't blend the way natural images do.</li>
+      </ol>
+
+      <figure class="proj-figure">
+        <div class="photo-frame">
+          <img src="../assets/img/projects/wbc/fig5-fold-training-curves.jpg" alt="Line chart of macro F1 across training epochs for 5 cross-validation folds, all converging upward with some fluctuation from mixup">
+        </div>
+        <figcaption>Training curves for all 5 folds — consistent upward trend, with some fold-to-fold
+          fluctuation from mixup regularization.</figcaption>
+      </figure>
+
+      <figure class="proj-figure">
+        <div class="photo-frame">
+          <img src="../assets/img/projects/wbc/fig6-final-results.jpg" alt="Bar chart comparing F1 macro across every experiment run, from EfficientNet plus class weights at 0.670 up to EfficientNet folds at 0.776, the best result">
+        </div>
+        <figcaption>Every experiment, side by side — 5-fold EfficientNet-B0 with a weighted sampler came
+          out on top at 0.7757.</figcaption>
+      </figure>
+    </section>
+
+    <section class="proj-section">
+    
+      <p>Given more time, I'd want to try combining the CNN features with the hand-crafted ones directly, or test more combinations of my finetuned CNN models.
+        I liked this project topic so much because we applied Ai and computer vision on a real world medicine problem !!
+      </p>
+    </section>
+
+  </div>
+</article>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-inner">
+    <h2>More projects</h2>
+    <p>Back to the rest of what I've built.</p>
+    <a href="../index.html#build" class="btn btn-primary">← Back to projects</a>
+    <div class="footer-links">
+      <a href="https://github.com/KarenKhou" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/karen-kh2003" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../assets/resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> Karen El Khoury.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

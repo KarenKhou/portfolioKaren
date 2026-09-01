@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karen El Khoury, Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Karen El Khoury — computer science engineer working across AI, extended reality, and computer graphics, with a life outside the keyboard too.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="floral-border" aria-hidden="true"></div>
+
+  <!-- ================= NAV ================= -->
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-mark">Karen EL KHOURY<span class="dot">.</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#build">Projects</a>
+        <a href="#care">Community</a>
+        <a href="#outside">Outside the Classroom</a>
+        <a href="#been">A l'international</a>
+        <a href="#contact">Contact</a>
+        <a href="assets/resume.pdf" class="nav-resume" target="_blank" rel="noopener">Resume ↗</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <canvas id="meshCanvas" class="mesh-canvas" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1 class="hero-title">Hi I'm Karen! </h1>
+          <p class="hero-sub">
+            I'm currently pursuing a double degree between Télécom Paris and ESIB in Beirut, where I explore
+            artificial intelligence, computer graphics, virtual reality, and human-computer interaction.
+          </p>
+          <p class="about-quote">I love creating things that make people smile.</p>
+          <p class="about-body">Whether it's through technology, volunteering, sketching, or discovering a
+            beautiful place, I'm happiest when creativity meets human connection — that's what drew me to
+            computer graphics and human-computer interaction, where I get to combine aesthetics, technology, and
+            people.</p>
+
+          <div class="hero-actions">
+            <a href="#build" class="btn btn-primary">View my work</a>
+            <a href="assets/resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Resume ↗</a>
+          </div>
+          <div class="hero-links">
+            <a href="https://github.com/KarenKhou" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/karen-kh2003" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:kkhouri.salut@gmail.com">kkhouri.salut@gmail.com</a>
+          </div>
+        </div>
+
+        <figure class="about-photo hero-photo" id="about">
+          <div class="photo-frame">
+            <img src="assets/img/about.jpeg" alt="Karen El Khoury">
+          </div>
+          <figcaption>Somewhere beautiful, probably.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHAT I BUILD ================= -->
+  <section class="section" id="build">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">💻 Projects</p>
+        <h2>My most recent projects:</h2>
+      </div>
+
+      <div class="project-grid">
+
+        <!-- 1 -->
+        <article class="card">
+          <div class="card-media">
+            <img src="assets/img/projects/wbc/fig3-multiotsu-pipeline.jpg"
+              alt="White blood cell segmentation pipeline showing original image, thresholding, and final overlay">
+          </div>
+          <div class="card-body">
+            <p class="card-cat">AI &amp; Computer Vision</p>
+            <h3 class="card-title">🩸 White Blood Cell Classification</h3>
+            <p class="card-desc">A convolutional neural network trained on microscopy images to classify white
+              blood cell subtypes, built for a Kaggle medical imaging challenge.</p>
+            <ul class="tags">
+              <li>Deep Learning</li>
+              <li>PyTorch</li>
+              <li>CNN</li>
+              <li>Medical AI</li>
+              <li>Kaggle</li>
+            </ul>
+            <a href="projects/white-blood-cell-classification.html" class="card-link">View project →</a>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="card">
+          <div class="card-media">
+            <img src="assets/img/projects/artvsfig/absfig.png"
+              alt="Bar chart comparing balanced accuracy across four approaches: hand-crafted 0.814, CNN 0.949, CLIP 0.970, DINOv2 0.963">
+          </div>
+          <div class="card-body">
+            <p class="card-cat">AI &amp; Computer Vision</p>
+            <h3 class="card-title">🎨 Abstract vs. Figurative Art Classification</h3>
+            <p class="card-desc">Four approaches compared side by side — hand-crafted features, CNN transfer
+              learning, CLIP, and DINOv2 — reaching 97% balanced accuracy on 8,100 paintings.</p>
+            <ul class="tags">
+              <li>Machine Learning</li>
+              <li>CNN</li>
+              <li>SVM</li>
+              <li>OpenCLIP</li>
+              <li>DINOv2</li>
+            </ul>
+            <a href="projects/abstract-vs-figurative.html" class="card-link">View project →</a>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="card">
+          <div class="card-media">
+            <img src="assets/img/projects/vr/fig2-calibration-scene.jpg"
+              alt="Person wearing a VR headset with a monitor showing the calibration scene and hand-tracking overlay">
+          </div>
+          <div class="card-body">
+            <p class="card-cat">XR &amp; Human-Computer Interaction</p>
+            <h3 class="card-title">🖐️ Passive Haptics &amp; Movement Gain in VR</h3>
+            <p class="card-desc">A Unity / OpenXR Lebanese-themed VR puzzle game where one calibrated physical
+              board is reused as different virtual objects, with adaptive gain reaching targets at any depth.</p>
+            <ul class="tags">
+              <li>Unity</li>
+              <li>OpenXR</li>
+              <li>XR Hands</li>
+              <li>Virtual Reality</li>
+              <li>HCI</li>
+            </ul>
+            <a href="projects/passive-haptics-vr.html" class="card-link">View project →</a>
+          </div>
+        </article>
+
+        <!-- 4: Mingle -->
+        <article class="card">
+          <div class="card-media">
+            <img src="assets/img/projects/mingle/mingle-main.png" alt="Mingle app screenshot">
+          </div>
+          <div class="card-body">
+            <p class="card-cat">XR &amp; Human-Computer Interaction</p>
+            <h3 class="card-title">💗 Mingle</h3>
+            <p class="card-desc">A human-centered Android app shaped by user research and rapid prototyping,
+              designed to help people build meaningful in-person connections.</p>
+            <ul class="tags">
+              <li>Human-Centered Design</li>
+              <li>UX Research</li>
+              <li>Android</li>
+              <li>TypeScript</li>
+              <li>Prototyping</li>
+            </ul>
+            <a href="projects/mingle.html" class="card-link">View project →</a>
+          </div>
+        </article>
+
+        <!-- 5: Life is Good -->
+        <article class="card">
+          <div class="card-media">
+            <img src="assets/img/projects/lifeisgood/ss.png" alt="Life is Good rendering pipeline screenshot">
+          </div>
+          <div class="card-body">
+            <p class="card-cat">Computer Graphics</p>
+            <h3 class="card-title">🧩 Life is Good</h3>
+            <p class="card-desc">A full 3D rendering pipeline built from first principles — Laplacian mesh
+              smoothing, ray tracing, and shadow mapping working together end to end.</p>
+            <ul class="tags">
+              <li>Geometry Processing</li>
+              <li>Laplacian Smoothing</li>
+              <li>Mesh Processing</li>
+              <li>Ray Tracing</li>
+              <li>Shadow Mapping</li>
+            </ul>
+            <a href="projects/lifeisgood.html" class="card-link">View project →</a>
+          </div>
+        </article>
+
+        <!-- 6: OpenGL Solar System -->
+        <article class="card">
+          <div class="card-media">
+            <img src="assets/img/projects/solarsystem/solar.png" alt="OpenGL solar system render">
+          </div>
+          <div class="card-body">
+            <p class="card-cat">Computer Graphics</p>
+            <h3 class="card-title">☀️ OpenGL Solar System</h3>
+            <p class="card-desc">A real-time 3D solar system built with raw OpenGL and GLSL shaders, featuring
+              Phong lighting and texture-mapped planetary bodies.</p>
+            <ul class="tags">
+              <li>OpenGL</li>
+              <li>GLSL</li>
+              <li>Phong Lighting</li>
+              <li>Texture Mapping</li>
+              <li>3D Graphics</li>
+            </ul>
+            <a href="projects/solarsystem.html" class="card-link">View project →</a>
+          </div>
+        </article>
+
+        <!-- 7: SmartCloset -->
+        <article class="card">
+          <div class="card-media">
+            <img src="assets/img/projects/smartcloset/smartclosetcrop.png" alt="Smart Closet ">
+          </div>
+          <div class="card-body">
+            <p class="card-cat">Mobile Development &amp; AI</p>
+            <h3 class="card-title">👗 SmartCloset</h3>
+            <p class="card-desc">An intelligent wardrobe manager built with Kotlin and Supabase,
+              integrating machine-learning models for clothing analysis, color detection and outfit
+              recommendations.</p>
+            <ul class="tags">
+              <li>Kotlin</li>
+              <li>Jetpack Compose</li>
+              <li>Supabase</li>
+              <li>FastAPI</li>
+              <li>Machine Learning</li>
+            </ul>
+            <a href="projects/smartcloset.html" class="card-link">View project →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHAT I CARE ABOUT ================= -->
+  <section class="section section-alt" id="care">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">❤️ Community</p>
+        <h2>Volunteering &amp; community.</h2>
+        <p class="section-lede">Most of what I've learned about designing for people, I learned outside a
+          classroom by showing up for my community</p>
+      </div>
+
+      <div class="care-grid">
+
+        <article class="care-card">
+          <p class="care-org">Mmkn NGO — Beirut, Lebanon</p>
+          <h3>Program Coordinator</h3>
+          <p class="care-when">2022 – 2025</p>
+          <p class="care-desc">Started as a volunteer tutor in Math and Physics for grades 8–9 at Mmkn, an
+            organization providing educational support to underprivileged students. Was later promoted to
+            Program Coordinator, supervising tutoring sessions and producing weekly reports.</p>
+        </article>
+
+        <article class="care-card">
+          <p class="care-org">Offre Joie NGO — Beirut, Lebanon</p>
+          <h3>Reconstruction Volunteer</h3>
+          <p class="care-when">Jun – Sep 2024</p>
+          <p class="care-desc">Helped rebuild the Mar Mikhael neighborhood, damaged in the Beirut port
+            explosion, with a humanitarian organization focused on post-crisis reconstruction and
+            social solidarity.</p>
+        </article>
+
+        <article class="care-card">
+          <p class="care-org">Google Developer Student Club</p>
+          <h3>Board Member — Secretary</h3>
+          <p class="care-when">2023 – 2025</p>
+          <p class="care-desc">Organized meetings, technical conferences, and club events with a
+            multidisciplinary student board, and worked collaboratively across teams to plan and deliver
+            each one.</p>
+        </article>
+
+        <article class="care-card">
+          <p class="care-org">Lebanese Center for the Deaf (LCD)</p>
+          <h3>Lebanese Sign Language Course</h3>
+          <p class="care-when">Nov 2023 – Mar 2024</p>
+          <p class="care-desc">Took a sign language course alongside deaf individuals — learning to
+            communicate on their terms rather than asking them to adapt to mine.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUTSIDE THE CLASSROOM ================= -->
+  <section class="section" id="outside">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">Outside the classroom</p>
+        <h2>What fills the rest of my time.</h2>
+      </div>
+
+      <div class="outside-grid">
+
+        <article class="outside-card">
+          <div class="photo-frame photo-placeholder outside-photo">
+            <!-- TODO: replace with a photo of your bookshelf, a favorite book, a reading nook, etc. -->
+            <span>📚</span>
+          </div>
+          <h3>Reading</h3>
+          <p>I read fiction because I love dreaming and escaping into other worlds.</p>
+        </article>
+
+        <article class="outside-card">
+          <div class="photo-frame photo-placeholder outside-photo">
+            <!-- TODO: replace with a photo of one of your sketches -->
+            <span>✏️</span>
+          </div>
+          <h3>Sketching</h3>
+          <p>I enjoy drawing in all the colors that i want without restrictions to fit into "beauty", it feels like freedom </p>
+        </article>
+
+        <article class="outside-card">
+          <div class="photo-frame photo-placeholder outside-photo">
+            <!-- TODO: replace with a photo of your journal, a desk, a quiet corner -->
+            <span>📝</span>
+          </div>
+          <h3>Journaling</h3>
+          <p>I LOVE writing and journaling to stay connected to myself, my thoughts, and how I feel.</p>
+        </article>
+
+        <article class="outside-card">
+          <div class="photo-frame photo-placeholder outside-photo">
+            <!-- TODO: replace with your favorite travel photo -->
+            <span>🌍</span>
+          </div>
+          <h3>Traveling</h3>
+          <p>Is there anything better than a weekend in another city with the people we love?
+            <a href="#been" class="inline-link">Memories' Gallery below</a>.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHERE I'VE BEEN ================= -->
+  <section class="section section-alt" id="been">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>A l'international!</h2>
+      </div>
+
+      <div class="care-grid">
+        <article class="care-card">
+          <p class="care-org">Texas A&amp;M University — Qatar</p>
+          <h3>AI Summer School</h3>
+          <p class="care-when">May – Jun 2024</p>
+          <p class="care-desc">Two weeks in Doha going deep on neural networks, optimization methods, AI
+            ethics, and applications of AI in medicine and cybersecurity, through hands-on project
+            sessions.</p>
+        </article>
+
+        <article class="care-card">
+          <p class="care-org">RESCIF Network — Francophone Engineering Schools</p>
+          <h3>International Entrepreneurs Summer School</h3>
+          <p class="care-when">Jul 2023</p>
+          <p class="care-desc">Won 1st prize at the RESCIF Entrepreneurs' Competition for SHiEld — led
+            problem definition, prototyping, and a full business model canvas with mentoring from
+            industry professionals.</p>
+        </article>
+      </div>
+
+      <div class="travel-block">
+        <h3 class="travel-title">During the past few years, i enjoyed traveling and discovering new cities and their
+          people, some places i have been:</h3>
+        <ul class="travel-chips">
+          <li>Marmaris</li>
+          <li>Qatar-Doha</li>
+          <li>Paris</li>
+          <li>Toulouse</li>
+          <li>Collioure</li>
+          <li>Barcelona</li>
+          <li>Strasbourg</li>
+          <li>Lille</li>
+          <li>Nice</li>
+          <li>Bruges</li>
+          <li>Ghent</li>
+          <li>Amsterdam</li>
+          <li>Rome</li>
+        </ul>
+      </div>
+
+      <div class="gallery-block">
+        <h3 class="travel-title">Travel Gallery</h3>
+        <p class="gallery-lede">Some of my favorite moments with my favorite people!</p>
+        <div class="gallery-grid">
+          <figure class="gallery-item tile-tall">
+            <div class="photo-frame"><img src="assets/img/1.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-square">
+            <div class="photo-frame"><img src="assets/img/2.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-wide">
+            <div class="photo-frame"><img src="assets/img/4.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-square">
+            <div class="photo-frame"><img src="assets/img/3.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-tall">
+            <div class="photo-frame"><img src="assets/img/5.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-square">
+            <div class="photo-frame"><img src="assets/img/6.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-wide">
+            <div class="photo-frame"><img src="assets/img/7.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-tall">
+            <div class="photo-frame"><img src="assets/img/8.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-square">
+            <div class="photo-frame"><img src="assets/img/9.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-tall">
+            <div class="photo-frame"><img src="assets/img/10.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-square">
+            <div class="photo-frame"><img src="assets/img/11.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-wide">
+            <div class="photo-frame"><img src="assets/img/12.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-square">
+            <div class="photo-frame"><img src="assets/img/13.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-tall">
+            <div class="photo-frame"><img src="assets/img/15.jpeg" alt="Travel memory"></div>
+          </figure>
+          <figure class="gallery-item tile-square">
+            <div class="photo-frame"><img src="assets/img/14.jpeg" alt="Travel memory"></div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ================= CONTACT / FOOTER ================= -->
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+      <h2>Thanks for stopping by! </h2>
+      <a href="mailto:kkhouri.salut@gmail.com" class="btn btn-primary">kkhouri.salut@gmail.com</a>
+      <div class="footer-links">
+        <a href="https://github.com/KarenKhou" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/karen-kh2003" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+      <p class="footer-copy">© <span id="year"></span> Karen El Khoury. Built with HTML, CSS &amp; a little JS —
+        hosted on GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

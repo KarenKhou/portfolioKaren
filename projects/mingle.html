@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mingle — Karen El Khoury</title>
+  <meta
+    name="description"
+    content="Mingle is a human-centered dating app concept designed to make meeting and talking to new people feel less intimidating."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+
+<!-- ================= NAV ================= -->
+<header class="site-nav">
+
+  <div class="nav-inner">
+
+    <a href="../index.html#top" class="nav-mark">
+      Karen EL KHOURY<span class="dot">.</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+      <a href="../index.html#build">
+        ← Back to projects
+      </a>
+
+      <a
+        href="../assets/resume.pdf"
+        class="nav-resume"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume ↗
+      </a>
+
+    </nav>
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+<section class="proj-hero">
+
+  <div class="section-inner">
+
+    <p class="eyebrow">
+      Human-Computer Interaction — Télécom Paris
+    </p>
+
+    <h1 class="proj-title">
+      💗 Mingle — Designing Dating for Real Human Interaction
+    </h1>
+
+    <p class="proj-lede">
+      A dating app concept designed around a simple problem:
+      meeting someone is easy — knowing what to say afterwards isn't.
+      We designed Mingle to help people discover, approach and talk to
+      new people without letting AI take over the interaction.
+    </p>
+
+    <p class="proj-team">
+      Team project with Hadi Jaber, Mohamad Hassan Ibrahim &amp; Malek Turki.
+    </p>
+
+  
+
+    <ul class="tags proj-tags">
+      <li>HCI</li>
+      <li>UX Research</li>
+      <li>UI Design</li>
+      <li>Figma</li>
+      <li>User Testing</li>
+      <li>Prototyping</li>
+      <li>AI</li>
+    </ul>
+
+    <div class="proj-links">
+
+      <a
+        href="https://github.com/Hadi891/geo-social-ai-platform"
+        class="btn btn-ghost"
+        target="_blank"
+        rel="noopener"
+      >
+        Code on GitHub ↗
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- MAIN VISUAL -->
+  <div class="section-inner proj-hero-media">
+
+    <figure class="proj-figure">
+
+      <div class="photo-frame">
+
+        <img
+          src="../assets/img/projects/mingle/mingle-main.png"
+          alt="Mingle mobile application interface"
+        >
+
+      </div>
+
+      <figcaption>
+        Mingle — from user research and paper sketches to an interactive prototype.
+      </figcaption>
+
+    </figure>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= CONTENT ================= -->
+<article class="proj-content">
+
+  <div class="section-inner proj-content-inner">
+
+
+    <!-- ================= PROBLEM ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">The problem</p>
+
+      <h2>
+        Getting a match isn't the hardest part.
+      </h2>
+
+      <p>
+        We started Mingle by looking at something that existing dating
+        apps often leave unresolved: what happens <em>after</em> two people
+        match?
+      </p>
+
+      <p>
+        For shy or introverted users, a blank chat can be surprisingly
+        intimidating. At the same time, existing platforms can feel
+        superficial, overwhelming, or disconnected from real-life
+        interactions.
+      </p>
+
+      <p>
+        Our goal was therefore not simply to design another dating app.
+        We wanted to explore how an interface could
+        <strong>reduce the friction of starting a human connection.</strong>
+      </p>
+
+    </section>
+
+
+
+    <!-- ================= USER RESEARCH ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">Understanding the users</p>
+
+      <h2>
+        We started with people, not screens.
+      </h2>
+
+      <p>
+        We surveyed <strong>50 young adults</strong> and tested several
+        existing dating apps ourselves, including Tinder, Hinge, Pure and
+        Muzz.
+      </p>
+
+      <p>
+        The research highlighted recurring frustrations:
+        difficulty starting conversations, superficial interactions,
+        safety concerns, ghosting and interfaces that sometimes created
+        unnecessary cognitive load.
+      </p>
+
+
+      <div class="proj-table-wrap">
+
+        <table class="proj-table">
+
+          <thead>
+            <tr>
+              <th>What we found</th>
+              <th>How it influenced Mingle</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Starting conversations feels awkward</td>
+              <td>Optional AI conversation starters</td>
+            </tr>
+
+            <tr>
+              <td>Dating apps can feel superficial</td>
+              <td>Shared interests &amp; compatibility</td>
+            </tr>
+
+            <tr>
+              <td>Long onboarding creates fatigue</td>
+              <td>Progressive, multi-step signup</td>
+            </tr>
+
+            <tr>
+              <td>Conversations often die quickly</td>
+              <td>Contextual conversation support</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= PERSONAS ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">Personas &amp; scenarios</p>
+
+      <h2>
+        Designing around moments of hesitation.
+      </h2>
+
+      <p>
+        From the research, we created personas and scenarios to turn
+        abstract findings into concrete situations.
+      </p>
+
+      <p>
+        One of them was <strong>Alex</strong>, an introverted student who
+        matches with people but overthinks his first message. Another was
+        <strong>Maria</strong>, a busy professional frustrated by shallow
+        conversations that quickly disappear.
+      </p>
+
+
+      <figure class="proj-figure">
+
+       
+
+        <figcaption>
+          Early user scenarios helped us think about the experience
+          before designing the interface.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+
+    <!-- ================= DESIGN PROCESS ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">Design process</p>
+
+      <h2>
+        Paper first. Pixels later.
+      </h2>
+
+      <p>
+        Before opening Figma, we sketched the main flows on paper:
+        onboarding, discovery, matching, profiles, chat and AI assistance.
+      </p>
+
+      <p>
+        This let us experiment quickly without becoming attached to visual
+        details. Once the information architecture felt clear, we translated
+        those ideas into low-fidelity wireframes and progressively refined
+        the interface.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <img
+            src="../assets/img/projects/mingle/sketches.jpg"
+            alt="Paper sketches created during the design of Mingle"
+          >
+
+        </div>
+
+        <figcaption>
+          Early paper exploration of Mingle's screens and navigation.
+        </figcaption>
+
+      </figure>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <img
+            src="../assets/img/projects/mingle/figma.jpg"
+            alt="Mingle Figma wireframes"
+          >
+
+        </div>
+
+        <figcaption>
+          Moving from sketches to the Figma prototype.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+
+    <!-- ================= DESIGN PRINCIPLES ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">Interaction design</p>
+
+      <h2>
+        Making the interface feel familiar — without making it mindless.
+      </h2>
+
+      <p>
+        We deliberately reused familiar mobile interaction patterns so
+        users would not need to learn a completely new interface.
+        The bottom navigation keeps important actions within thumb reach,
+        while progressive disclosure reduces the amount of information
+        presented during onboarding.
+      </p>
+
+
+      <div class="proj-table-wrap">
+
+        <table class="proj-table">
+
+          <thead>
+            <tr>
+              <th>Principle</th>
+              <th>How we applied it</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td><strong>Learnability</strong></td>
+              <td>Familiar navigation and interaction patterns</td>
+            </tr>
+
+            <tr>
+              <td><strong>Fitts' Law</strong></td>
+              <td>Important actions positioned within thumb reach</td>
+            </tr>
+
+            <tr>
+              <td><strong>Progressive Disclosure</strong></td>
+              <td>Signup divided into small manageable steps</td>
+            </tr>
+
+            <tr>
+              <td><strong>User Control</strong></td>
+              <td>AI assistance remains optional and editable</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= AI ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">Designing the AI</p>
+
+      <h2>
+        The AI should help the conversation — then get out of the way.
+      </h2>
+
+      <p>
+        The AI assistant was deliberately designed as a
+        <strong>support tool rather than an automatic conversational agent.</strong>
+        Suggestions could always be ignored, edited or dismissed.
+      </p>
+
+      <p>
+        We imagined the chat as three states:
+        <strong>Discovery</strong> when a conversation is starting,
+        <strong>Flow</strong> when people are talking naturally, and
+        <strong>Stall</strong> when the conversation begins to fade.
+      </p>
+
+      <p>
+        In Flow mode, the interface suppresses unnecessary suggestions.
+        In other words, when two people are already connecting,
+        <strong>Mingle stops trying to help.</strong>
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <img
+            src="../assets/img/projects/mingle/chat-modes.jpg"
+            alt="Mingle adaptive chat interface showing different conversation states"
+          >
+
+        </div>
+
+        <figcaption>
+          The adaptive chat changes its level of assistance depending
+          on the state of the conversation.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+
+    <!-- ================= FINAL PROTOTYPE ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">Prototype</p>
+
+      <h2>
+        From a Figma concept to an interactive application.
+      </h2>
+
+      <p>
+        We eventually implemented a functional prototype covering the
+        main experience: profile creation, a social feed, nearby discovery,
+        matching, messaging and AI-assisted conversations.
+      </p>
+
+      <p>
+        The geo-social map was designed to make discovery feel connected
+        to the user's real environment rather than being an endless stack
+        of profiles.
+      </p>
+
+
+      <figure class="proj-figure">
+
+        <div class="photo-frame">
+
+          <img
+            src="../assets/img/projects/mingle/final-screens.jpg"
+            alt="Final Mingle prototype screens"
+          >
+
+        </div>
+
+        <figcaption>
+          Final prototype — profile, map, matches, adaptive chat and home feed.
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+
+    <!-- ================= USER TESTING ================= -->
+    <section class="proj-section">
+
+      <p class="proj-kicker">User testing</p>
+
+      <h2>
+        Then we gave it back to users.
+      </h2>
+
+      <p>
+        We evaluated the prototype using
+        <strong>task-based usability testing and the think-aloud method.</strong>
+        Participants were asked to create a profile, discover someone nearby
+        and start a conversation using the AI assistance.
+      </p>
+
+      <p>
+        Rather than only measuring whether users completed each task,
+        we listened to their hesitations and reactions — especially when
+        interacting with the AI.
+      </p>
+
+      <p>
+        Testing suggested that the assistant could make conversation
+        initiation feel easier, but it also exposed an important tension:
+        too much assistance can reduce authenticity or make users feel
+        influenced by the system.
+      </p>
+
+    </section>
+
+
+
+  </div>
+
+</article>
+
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <h2>More projects</h2>
+
+    <p>
+      Back to the rest of what I've built.
+    </p>
+
+    <a
+      href="../index.html#build"
+      class="btn btn-primary"
+    >
+      ← Back to projects
+    </a>
+
+
+    <div class="footer-links">
+
+      <a
+        href="https://github.com/KarenKhou"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/karen-kh2003"
+        target="_blank"
+        rel="noopener"
+      >
+        LinkedIn
+      </a>
+
+      <a
+        href="../assets/resume.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume
+      </a>
+
+    </div>
+
+
+    <p class="footer-copy">
+      © <span id="year"></span> Karen El Khoury.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>
