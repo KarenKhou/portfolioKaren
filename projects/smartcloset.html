@@ -21,6 +21,47 @@
   >
 
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- SmartCloset-specific media sizing -->
+  <style>
+    .project-small-media {
+      width: 360px !important;
+      max-width: 75% !important;
+      margin: 28px auto !important;
+    }
+
+    .project-small-media img,
+    .project-small-media video {
+      display: block;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      border-radius: 4px;
+    }
+
+    .project-small-media figcaption {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    /* Main image can be slightly larger */
+    .project-main-media {
+      width: 440px !important;
+      max-width: 75% !important;
+    }
+
+    @media (max-width: 600px) {
+      .project-small-media,
+      .project-main-media {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+  </style>
+
 </head>
 
 
@@ -28,6 +69,7 @@
 
 
 <!-- ================= NAV ================= -->
+
 <header class="site-nav">
 
   <div class="nav-inner">
@@ -71,6 +113,7 @@
 
 
 <!-- ================= HERO ================= -->
+
 <section class="proj-hero">
 
   <div class="section-inner">
@@ -133,38 +176,22 @@
 
 
   <!-- ================= HERO IMAGE ================= -->
-  <div class="section-inner proj-hero-media">
 
-    <figure class="proj-figure">
-
-      <div class="photo-frame">
-
-        <img
-          src="../assets/img/projects/smartcloset/smartcloset.png"
-          alt="SmartCloset mobile application"
-        >
-
-      </div>
-
-      <figcaption>
-        SmartCloset — bringing a physical wardrobe and a digital closet together.
-      </figcaption>
-
-    </figure>
-
-  </div>
+  
 
 </section>
 
 
 
 <!-- ================= CONTENT ================= -->
+
 <article class="proj-content">
 
   <div class="section-inner proj-content-inner">
 
 
     <!-- ================= IDEA ================= -->
+
     <section class="proj-section">
 
       <p class="proj-kicker">The idea</p>
@@ -186,11 +213,29 @@
         <strong>Arduino-based IoT automation.</strong>
       </p>
 
+      <div class="section-inner">
+
+    <figure class="proj-figure project-small-media project-main-media">
+
+      <img
+        src="../assets/img/projects/smartcloset/smartcloset.png"
+        alt="SmartCloset mobile application"
+      >
+
+      <figcaption>
+        SmartCloset — bringing a physical wardrobe and a digital closet together.
+      </figcaption>
+
+    </figure>
+
+  </div>
+
     </section>
 
 
 
     <!-- ================= FEATURES ================= -->
+
     <section class="proj-section">
 
       <p class="proj-kicker">The experience</p>
@@ -261,6 +306,7 @@
 
 
     <!-- ================= APP ================= -->
+
     <section class="proj-section">
 
       <p class="proj-kicker">01 — Mobile App</p>
@@ -282,16 +328,14 @@
       </p>
 
 
-      <figure class="proj-figure">
+      <!-- SMALL IMAGE -->
 
-        <div class="photo-frame">
+      <figure class="proj-figure project-small-media">
 
-          <img
-            src="../assets/img/projects/smartcloset/screens.jpg"
-            alt="SmartCloset Android application screens"
-          >
-
-        </div>
+        <img
+          src="../assets/img/projects/smartcloset/screens.jpg"
+          alt="SmartCloset Android application screens"
+        >
 
         <figcaption>
           SmartCloset mobile interface — digital wardrobe, outfits and history.
@@ -304,6 +348,7 @@
 
 
     <!-- ================= BACKEND ================= -->
+
     <section class="proj-section">
 
       <p class="proj-kicker">02 — Backend &amp; Integration</p>
@@ -313,7 +358,8 @@
       </h2>
 
       <p>
-        I also worked on the <strong>backend and end-to-end integration</strong>
+        I also worked on the
+        <strong>backend and end-to-end integration</strong>
         of the system, using Supabase for the application's cloud services
         and connecting the mobile experience to the AI services.
       </p>
@@ -369,6 +415,7 @@
 
 
     <!-- ================= AI ================= -->
+
     <section class="proj-section">
 
       <p class="proj-kicker">03 — AI Integration</p>
@@ -379,13 +426,18 @@
 
       <p>
         The machine-learning models were developed by my teammates
-        <strong>Marilyn Abou Tayeh, Lea Chamseddine and Fatima AlRabih.</strong>
+        <strong>
+          Marilyn Abou Tayeh, Lea Chamseddine and Fatima AlRabih.
+        </strong>
       </p>
 
       <p>
         Their work covered
-        <strong>background removal, clothing detection and intelligent
-        outfit recommendations.</strong>
+        <strong>
+          background removal, clothing detection and intelligent
+          outfit recommendations.
+        </strong>
+
         My role was to integrate these models into the application and
         backend so that they became part of the actual user experience.
       </p>
@@ -402,6 +454,7 @@
 
 
     <!-- ================= IOT ================= -->
+
     <section class="proj-section">
 
       <p class="proj-kicker">04 — IoT</p>
@@ -422,25 +475,9 @@
       </p>
 
 
-      <figure class="proj-figure">
+      <!-- SMALL VIDEO -->
 
-        <div class="photo-frame">
-
-          <video
-          controls
-          playsinline
-          muted
-          loop
-          preload="metadata"
-          style="width: 100%; display: block;"
-        >
-          <source
-            src="../assets/img/projects/smartcloset/VIDMDP.mp4"
-            type="video/mp4"
-          >
-        </video>
-
-        </div>
+      <figure class="proj-figure project-small-media">
 
         <figcaption>
           The physical side of SmartCloset — connecting wardrobe activity
@@ -454,6 +491,7 @@
 
 
     <!-- ================= MY CONTRIBUTION ================= -->
+
     <section class="proj-section">
 
       <p class="proj-kicker">My contribution</p>
@@ -478,7 +516,6 @@
     </section>
 
 
-
   </div>
 
 </article>
@@ -486,6 +523,7 @@
 
 
 <!-- ================= FOOTER ================= -->
+
 <footer class="footer">
 
   <div class="footer-inner">

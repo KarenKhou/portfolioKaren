@@ -1,226 +1,484 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Lost Phoenician Artifact — Passive Haptics & Movement Gain in VR — Karen El Khoury</title>
-<meta name="description" content="A Lebanese-themed VR puzzle game exploring passive haptics and adaptive movement gain — one physical board reused as multiple virtual objects, built in Unity with OpenXR and XR Hands.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+  <title>
+    The Lost Phoenician Artifact — Passive Haptics & Movement Gain in VR — Karen El Khoury
+  </title>
 
-<link rel="stylesheet" href="../css/style.css">
+  <meta
+    name="description"
+    content="A Lebanese-themed VR puzzle game exploring passive haptics and adaptive movement gain — one physical board reused as multiple virtual objects, built in Unity with OpenXR and XR Hands."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
-<!-- ================= NAV ================= -->
-<header class="site-nav">
-  <div class="nav-inner">
-    <a href="../index.html#top" class="nav-mark">Karen EL KHOURY<span class="dot">.</span></a>
-    <nav class="nav-links" id="navLinks">
-      <a href="../index.html#build">← Back to projects</a>
-      <a href="../assets/resume.pdf" class="nav-resume" target="_blank" rel="noopener">Resume ↗</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+  <!-- ================= NAV ================= -->
 
-<!-- ================= PROJECT HERO ================= -->
-<section class="proj-hero">
-  <div class="section-inner">
-    <p class="eyebrow">XR &amp; Human-Computer Interaction — IGR Project, Télécom Paris</p>
-    <h1 class="proj-title">🖐️ The Lost Phoenician Artifact — Passive Haptics &amp; Adaptive Movement Gain in VR</h1>
-    <p class="proj-lede">A single physical board, calibrated once, reused across an entire Lebanese-themed
-      VR puzzle game — reaching virtual objects that are far, small, tilted, or placed at different
-      depths, using only the same small patch of real desk space.</p>
-    <p class="proj-team">Team project with Hadi Jaber &amp; Mohamad Hassan Ibrahim — built on Unity,
-      OpenXR &amp; XR Hands.</p>
+  <header class="site-nav">
+    <div class="nav-inner">
 
-    <ul class="tags proj-tags">
-      <li>Unity</li><li>OpenXR</li><li>XR Hands</li><li>Virtual Reality</li><li>Passive Haptics</li><li>HCI</li>
-    </ul>
+      <a href="../index.html#top" class="nav-mark">
+        Karen EL KHOURY<span class="dot">.</span>
+      </a>
 
-    <div class="proj-links">
-      <a
-    href="../assets/projects/IGR_VR_Project.pdf"
-    class="btn btn-ghost"
-    target="_blank"
-    rel="noopener"
-  >
+      <nav class="nav-links" id="navLinks">
+        <a href="../index.html#build">← Back to projects</a>
+
+        <a
+          href="../assets/resume.pdf"
+          class="nav-resume"
+          target="_blank"
+          rel="noopener"
+        >
+          Resume ↗
+        </a>
+      </nav>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
-    
-  </div>
-</section>
+  </header>
 
-<!-- ================= CONTENT ================= -->
-<article class="proj-content">
-  <div class="section-inner proj-content-inner">
 
-    <section class="proj-section">
-      <p class="proj-kicker">The problem</p>
-      <h2>Your room is small. VR doesn't have to feel that way.</h2>
-      <p>VR headsets can show you a huge, richly detailed world — but your actual hand is still bound
-        by your actual room. In a dorm room, a train seat, or any small physical space, you simply can't
-        reach a virtual object that appears far away, oversized, or tilted. On top of that, touching a
-        virtual object usually means touching empty air, which quietly breaks immersion every time.</p>
-      <p><strong>Passive haptics</strong> solves the second problem: a real object — here, a simple board
-        — acts as a tactile stand-in for whatever virtual surface you're looking at. <strong>Movement
-        gain</strong> solves the first: it remaps real hand motion to virtual hand motion, so a small real
-        movement can cover a much larger virtual distance. At a gain of 2, moving your real hand 10 cm
-        moves your virtual hand about 20 cm.</p>
-      <p>We built on a previous IGR205 prototype that proved the two ideas could work together, but it
-        had real usability gaps — an awkward two-hand calibration flow, a palm-based gain system that
-        didn't quite line up with where you actually touch things (your fingertip), and no way to adapt
-        gain to individual objects at different depths. Fixing those gaps was the actual project.</p>
-    </section>
+  <!-- ================= PROJECT HERO ================= -->
 
-    <section class="proj-section">
-      <p class="proj-kicker">The build</p>
-      <h2>What we changed under the hood.</h2>
+  <section class="proj-hero">
+    <div class="section-inner">
 
-      <h3 class="proj-h3">A calibration flow you don't have to think about</h3>
-      <p>The old system asked you to touch a corner with one hand and press a validation button with
-        the other — technically fine, practically awkward. We replaced it with
-        <strong>same-hand pinch confirmation</strong>: touch a corner with your index fingertip, pinch
-        with that same hand to confirm. The tricky part was that a pinch gesture slightly shifts your
-        fingertip right before it registers, so we added <strong>pre-pinch fingertip capture</strong> —
-        continuously caching the last stable fingertip position while the hand is open, so the system
-        records where you meant to touch, not where the pinch dragged you.</p>
-      <p>We also fixed the calibration point order — a strict top-left → top-right → bottom-left
-        sequence — instead of the previous general corner-detection logic, which could occasionally
-        misread which corner was which and render the board with the wrong orientation.</p>
-      <div class="section-inner proj-hero-media">
-    <figure class="proj-figure">
-      <div class="photo-frame">
-        <img src="../assets/img/projects/vr/fig2-calibration-scene.jpg" alt="A person wearing a VR headset at a desk, with a monitor showing the calibration scene and hand-tracking skeleton overlay">
-      </div>
-      <figcaption>Calibrating the physical board with same-hand pinch confirmation — the whole game
-        is built on this one setup step.</figcaption>
-    </figure>
-  </div>
-      <h3 class="proj-h3">Remapping the fingertip, not the palm</h3>
-      <p>The previous system anchored gain to the palm — a stable reference, but not where you actually
-        make contact. We switched to <strong>fingertip-anchored rigid hand remapping</strong>: read the
-        real fingertip position, map it to the corresponding point on the transformed virtual surface,
-        compute the offset, then apply that offset rigidly to the entire virtual hand. The result is a
-        virtual fingertip that reliably lands where you're actually looking, even after the board has
-        been resized or tilted.</p>
+      <p class="eyebrow">
+        XR &amp; Human-Computer Interaction — IGR Project, Télécom Paris
+      </p>
 
-      <h3 class="proj-h3">Gain that adapts to what you're reaching for</h3>
-      <p>Gain that's fixed to the whole surface breaks down once you place small objects at different
-        virtual depths — a near object needs a very different gain than a far one on the same board. We
-        built <strong>adaptive object-depth gain</strong>, which adjusts automatically based on how far
-        the targeted object actually is, plus <strong>smooth gain transitions</strong> so the jump between
-        gain values doesn't feel jarring and break the sense of connection between your real and virtual
-        hand.</p>
+      <h1 class="proj-title">
+        🖐️ The Lost Phoenician Artifact — Passive Haptics &amp; Adaptive Movement Gain in VR
+      </h1>
 
-      <figure class="proj-figure">
-        <div class="photo-frame">
-          <img src="../assets/img/projects/vr/fig3-adaptive-gain-byblos.jpg" alt="VR view of the Byblos artifact cabinet showing a debug panel: Targeting Cedar, Hand Right hand, Adaptive gain 1.71, Correct sequence Cedar to Shell to Coin to Seal">
-        </div>
-        <figcaption>Adaptive gain in action — the system recalculates gain (1.71 here) based on the
-          depth of the specific artifact being targeted.</figcaption>
-      </figure>
-    </section>
+      <p class="proj-lede">
+        A single physical board, calibrated once, reused across an entire
+        Lebanese-themed VR puzzle game — reaching virtual objects that are far,
+        small, tilted, or placed at different depths, using only the same small
+        patch of real desk space.
+      </p>
 
-    <section class="proj-section">
-      <p class="proj-kicker">The game</p>
-      <h2>One board, five scenes, one Lebanese legend.</h2>
-      <p>Rather than leave this as a bare technical demo, we built <strong>The Lost Phoenician
-        Artifact</strong> — a VR puzzle-adventure across locations inspired by Lebanese heritage: Byblos,
-        the Cedars of Lebanon, and Baalbek. The player hunts for a legendary lost artifact, and the same
-        calibrated board reappears as a completely different object in every scene — an artifact cabinet,
-        a maze, a memory board, a Fitts'-law test surface — which is exactly the point: one proxy,
-        reused meaningfully instead of just demoed once.</p>
+      <p class="proj-team">
+        Team project with Hadi Jaber &amp; Mohamad Hassan Ibrahim — built with
+        Unity, OpenXR &amp; XR Hands.
+      </p>
 
-      <figure class="proj-figure">
-        <div class="photo-frame">
-          <img src="../assets/img/projects/vr/fig1-cedar-forest-scene.jpg" alt="VR screenshot of the Cedar Forest environment, with cedar trees against a blue sky">
-        </div>
-        <figcaption>The Cedars Forest scene — my main environment build for the project.</figcaption>
-      </figure>
-
-      <ul class="proj-list">
-        <li><strong>Calibration Scene</strong> — the entry point. Players calibrate the physical board
-          with the same-hand pinch workflow before anything else happens.</li>
-        <li><strong>Byblos — Adaptive Gain Game</strong> — select artifacts in the correct sequence at
-          near, medium, and far depths, with gain adjusting automatically to each target.</li>
-        <li><strong>Byblos — Maze Game</strong> — drag a fingertip along a path on the board; tests
-          continuous, precise surface tracking rather than discrete touches.</li>
-        <li><strong>Cedars Forest — Memory Game</strong> — watch and reproduce a sequence. We prototyped
-          both 2D and 3D versions and kept the 2D one after the 3D version proved unreliable.</li>
-        <li><strong>Cedars Forest — Fitts' Law Game</strong> — a target-acquisition test built around
-          Fitts' Law, used to validate that board tilt transformations still land the virtual fingertip
-          accurately.</li>
+      <ul class="tags proj-tags">
+        <li>Unity</li>
+        <li>OpenXR</li>
+        <li>XR Hands</li>
+        <li>Virtual Reality</li>
+        <li>Passive Haptics</li>
+        <li>HCI</li>
       </ul>
 
-      <figure class="proj-figure">
-        <div class="photo-frame">
-          <img src="../assets/img/projects/vr/fig4-maze-game.jpg" alt="VR view of a maze puzzle displayed on the physical board, with a teal path drawn from the player's fingertip toward the exit">
-        </div>
-        <figcaption>The Maze Game — continuous fingertip dragging along a valid path.</figcaption>
-      </figure>
+      <div class="proj-links">
+        <a
+          href="../assets/projects/IGR_VR_Project.pdf"
+          class="btn btn-ghost"
+          target="_blank"
+          rel="noopener"
+        >
+          Read the full report ↗
+        </a>
+      </div>
 
-      <figure class="proj-figure">
-        <div class="photo-frame">
-          <img src="../assets/img/projects/vr/fig5-memory-game.jpg" alt="VR view of the Memory Game prototype in the Cedars Forest scene, showing four symbol cards and a yellow REPLAY button">
-        </div>
-        <figcaption>The Memory Game prototype — watch a sequence, then reproduce it.</figcaption>
-      </figure>
+    </div>
+  </section>
 
-      <figure class="proj-figure">
-        <div class="photo-frame">
-          <img src="../assets/img/projects/vr/fig6-fitts-law-game.jpg" alt="Top-down VR view of the Fitts' Law game showing a ring of circular targets on a red board, with a hand skeleton reaching toward the center">
-        </div>
-        <figcaption>The Fitts' Law Game , used to test board tilt and remapping accuracy.</figcaption>
-      </figure>
+
+  <!-- ================= CONTENT ================= -->
+
+  <article class="proj-content">
+    <div class="section-inner proj-content-inner">
+
+
+      <!-- ================= PROBLEM ================= -->
+
+      <section class="proj-section">
+
+        <p class="proj-kicker">The problem</p>
+
+        <h2>Your room is small. VR doesn't have to feel that way.</h2>
+
+        <p>
+          VR headsets can show you a huge, richly detailed world — but your
+          actual hand is still bound by your actual room. 
+          On top of that, touching a virtual object usually means touching
+          empty air, which quietly breaks immersion every time.
+        </p>
+
+        <p>
+          <strong>Passive haptics</strong> solves the second problem: a real
+          object acts as a tactile stand-in for
+          whatever virtual surface you're looking at.
+
+          <strong>Movement gain</strong> solves the first: it remaps real hand
+          motion to virtual hand motion, so a small real movement can cover a
+          much larger virtual distance.
+        </p>
+
 
       </section>
 
-    <section class="proj-section">
-      <p class="proj-kicker">HCI thinking</p>
-      <p>Of course, before writing any Unity code, we had fun sketching storylines, puzzle ideas, and interaction layouts.
-        A few HCI principles shaped the
-        result directly: keeping the <em>same physical object</em> throughout the game to reduce
-        cognitive load, adding hover and highlight feedback so it's always clear what's being targeted,
-        giving players a dedicated calibration/testing scene to build intuition before real gameplay
-        starts, and smoothing every gain transition so reach never jumps unpredictably.
-      
-        This project was so fun to work on with my team mates Hadi and Mohammad! We gained some basic knowledge in Unity and VR principles, but we have so much more to learn!
+
+      <!-- ================= BUILD ================= -->
+
+      <section class="proj-section">
+
+        <p class="proj-kicker">The build</p>
+
+        <h2>What we changed under the hood.</h2>
+
+
+        <!-- CALIBRATION -->
+
+        <h3 class="proj-h3">
+          A calibration flow you don't have to think about
+        </h3>
+
+        <p>
+          The old system asked you to touch a corner with one hand and press
+          a validation button with the other — technically fine, practically
+          awkward.
+
+          We replaced it with
+          <strong>same-hand pinch confirmation</strong>: touch a corner with
+          your index fingertip, pinch with that same hand to confirm.
+
+          The tricky part was that a pinch gesture slightly shifts your
+          fingertip right before it registers, so we added
+          <strong>pre-pinch fingertip capture</strong> — continuously caching
+          the last stable fingertip position while the hand is open, so the
+          system records where you meant to touch, not where the pinch dragged
+          you.
+        </p>
+
+        <p>
+          We also fixed the calibration point order — a strict
+          top-left → top-right → bottom-left sequence — instead of the previous
+          general corner-detection logic, which could occasionally misread
+          which corner was which and render the board with the wrong
+          orientation.
+        </p>
+
+        <figure class="proj-figure">
+          <div class="photo-frame">
+            <img
+              src="../assets/img/projects/vr/fig2-calibration-scene.jpg"
+              alt="VR board calibration using hand tracking"
+            >
+          </div>
+
+          <figcaption>
+            Calibrating the physical board with same-hand pinch confirmation —
+            the whole game is built on this one setup step.
+          </figcaption>
+        </figure>
+
+
+        <!-- FINGERTIP REMAPPING -->
+
+        <h3 class="proj-h3">
+          Remapping the fingertip, not the palm
+        </h3>
+
+        <p>
+          The previous system anchored gain to the palm — a stable reference,
+          but not where you actually make contact.
+
+          We switched to
+          <strong>fingertip-anchored rigid hand remapping</strong>: read the
+          real fingertip position, map it to the corresponding point on the
+          transformed virtual surface, compute the offset, then apply that
+          offset rigidly to the entire virtual hand.
+
+          The result is a virtual fingertip that reliably lands where you're
+          actually looking, even after the board has been resized or tilted.
+        </p>
+
+
+        <!-- ADAPTIVE GAIN -->
+
+        <h3 class="proj-h3">
+          Gain that adapts to what you're reaching for
+        </h3>
+
+        <p>
+          Gain that's fixed to the whole surface breaks down once you place
+          small objects at different virtual depths — a near object needs a
+          very different gain than a far one on the same board.
+
+          We built <strong>adaptive object-depth gain</strong>, which adjusts
+          automatically based on how far the targeted object actually is,
+          plus <strong>smooth gain transitions</strong> so the jump between
+          gain values doesn't feel jarring and break the sense of connection
+          between your real and virtual hand.
+        </p>
+
+        <figure class="proj-figure">
+          <div class="photo-frame">
+            <img
+              src="../assets/img/projects/vr/fig3-adaptive-gain-byblos.jpg"
+              alt="Adaptive movement gain in the Byblos artifact scene"
+            >
+          </div>
+
+          <figcaption>
+            Adaptive gain in action — the system recalculates gain (1.71 here)
+            based on the depth of the specific artifact being targeted.
+          </figcaption>
+        </figure>
+
+      </section>
+
+
+      <!-- ================= GAME ================= -->
+
+      <section class="proj-section">
+
+        <p class="proj-kicker">The game</p>
+
+        <h2>One board, five scenes, one Lebanese legend.</h2>
+
+        <p>
+          Rather than leave this as a bare technical demo, we built
+          <strong>The Lost Phoenician Artifact</strong> — a VR puzzle-adventure
+          across locations inspired by Lebanese heritage: Byblos, the Cedars
+          of Lebanon, and Baalbek.
+
+          The player hunts for a legendary lost artifact, and the same
+          calibrated board reappears as a completely different object in every
+          scene — an artifact cabinet, a maze, a memory board, a Fitts'-law
+          test surface — which is exactly the point: one proxy, reused
+          meaningfully instead of just demoed once.
+        </p>
+
+
+        <!-- CEDARS -->
+
+        <figure class="proj-figure">
+          <div class="photo-frame">
+            <img
+              src="../assets/img/projects/vr/fig1-cedar-forest-scene.jpg"
+              alt="Cedars Forest VR environment"
+            >
+          </div>
+
+          <figcaption>
+            The Cedars Forest scene — my main environment build for the
+            project.
+          </figcaption>
+        </figure>
+
+
+        <!-- SCENES LIST -->
+
+        <ul class="proj-list">
+
+          <li>
+            <strong>Calibration Scene</strong> — the entry point.
+            Players calibrate the physical board with the same-hand pinch
+            workflow before anything else happens.
+          </li>
+
+          <li>
+            <strong>Byblos — Adaptive Gain Game</strong> — select artifacts
+            in the correct sequence at near, medium, and far depths, with gain
+            adjusting automatically to each target.
+          </li>
+
+          <li>
+            <strong>Byblos — Maze Game</strong> — drag a fingertip along a
+            path on the board; tests continuous, precise surface tracking
+            rather than discrete touches.
+          </li>
+
+          <li>
+            <strong>Cedars Forest — Memory Game</strong> — watch and reproduce
+            a sequence. We prototyped both 2D and 3D versions and kept the 2D
+            one after the 3D version proved unreliable.
+          </li>
+
+          <li>
+            <strong>Cedars Forest — Fitts' Law Game</strong> — a
+            target-acquisition test built around Fitts' Law, used to validate
+            that board tilt transformations still land the virtual fingertip
+            accurately.
+          </li>
+
+        </ul>
+
+
+        <!-- MAZE -->
+
+        <figure class="proj-figure">
+          <div class="photo-frame">
+            <img
+              src="../assets/img/projects/vr/fig4-maze-game.jpg"
+              alt="Maze game in virtual reality"
+            >
+          </div>
+
+          <figcaption>
+            The Maze Game — continuous fingertip dragging along a valid path.
+          </figcaption>
+        </figure>
+
+
+        <!-- MEMORY -->
+
+        <figure class="proj-figure">
+          <div class="photo-frame">
+            <img
+              src="../assets/img/projects/vr/fig5-memory-game.jpg"
+              alt="Memory game prototype in the Cedars Forest"
+            >
+          </div>
+
+          <figcaption>
+            The Memory Game prototype — watch a sequence, then reproduce it.
+          </figcaption>
+        </figure>
+
+
+        <!-- FITTS LAW -->
+
+        <figure class="proj-figure">
+          <div class="photo-frame">
+            <img
+              src="../assets/img/projects/vr/fig6-fitts-law-game.jpg"
+              alt="Fitts Law target acquisition experiment in VR"
+            >
+          </div>
+
+          <figcaption>
+            The Fitts' Law Game — used to test board tilt and remapping
+            accuracy.
+          </figcaption>
+        </figure>
+
+      </section>
+
+
+      <!-- ================= HCI ================= -->
+
+      <section class="proj-section">
+
+        <p class="proj-kicker">HCI thinking</p>
+
+        <h2>Designing the interaction, not just the system.</h2>
+
+        <p>
+          Of course, before writing any Unity code, we had fun sketching
+          storylines, puzzle ideas, and interaction layouts.
+
+          A few HCI principles shaped the result directly: keeping the
+          <em>same physical object</em> throughout the game to reduce cognitive
+          load, adding hover and highlight feedback so it's always clear
+          what's being targeted, giving players a dedicated
+          calibration/testing scene to build intuition before real gameplay
+          starts, and smoothing every gain transition so reach never jumps
+          unpredictably.
+        </p>
+
+        <p>
+          This project was so fun to work on with my teammates Hadi and
+          Mohammad! We gained some basic knowledge in Unity and VR principles,
+          but we have so much more to learn!
+        </p>
+
+
+        <!-- TEAM -->
+
+        <figure class="proj-figure">
+          <div class="photo-frame">
+            <img
+              src="../assets/img/projects/vr/moietmhmdethadi.png"
+              alt="Our VR project team"
+            >
+          </div>
+
+          <figcaption>
+            My team: Me — Hadi — Mohammad Hassan
+          </figcaption>
+        </figure>
+
+      </section>
+
+
+    </div>
+  </article>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <h2>More projects</h2>
+
+      <p>
+        Back to the rest of what I've built.
       </p>
 
-      <div class="section-inner proj-hero-media">
-    <figure class="proj-figure">
-      <div class="photo-frame">
-        <img src="../assets/img/projects/vr/moietmhmdethadi.png" alt="A person wearing a VR headset at a desk, with a monitor showing the calibration scene and hand-tracking skeleton overlay">
+      <a href="../index.html#build" class="btn btn-primary">
+        ← Back to projects
+      </a>
+
+      <div class="footer-links">
+        <a
+          href="https://www.linkedin.com/in/karen-kh2003"
+          target="_blank"
+          rel="noopener"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          href="../assets/resume.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          Resume
+        </a>
       </div>
-      <figcaption>My team : Me - Hadi - Mohammad Hassan </figcaption>
-    </figure>
-  </div>
-    </section>
 
-    
+      <p class="footer-copy">
+        © <span id="year"></span> Karen El Khoury.
+      </p>
 
-  </div>
-</article>
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <div class="footer-inner">
-    <h2>More projects</h2>
-    <p>Back to the rest of what I've built.</p>
-    <a href="../index.html#build" class="btn btn-primary">← Back to projects</a>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/karen-kh2003" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="../assets/resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
-    <p class="footer-copy">© <span id="year"></span> Karen El Khoury.</p>
-  </div>
-</footer>
+  </footer>
 
-<script src="../js/main.js"></script>
+
+  <script src="../js/main.js"></script>
+
 </body>
 </html>

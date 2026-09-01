@@ -17,7 +17,7 @@
   --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
   --font-serif: 'Fraunces', Georgia, serif;
 
-  --max-w: 1080px;
+  --max-w: 940px;
   --radius: 4px;
 }
 
@@ -135,10 +135,10 @@ a{ color: inherit; text-decoration: none; }
 /* =========================================================
    HERO
 ========================================================= */
-.hero{
+.hero {
   position: relative;
   overflow: hidden;
-  padding: 120px 0 96px;
+  padding: 90px 0 72px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -210,7 +210,9 @@ a{ color: inherit; text-decoration: none; }
 /* =========================================================
    A LITTLE ABOUT ME
 ========================================================= */
-.about-section{ padding: 88px 0 96px; }
+.about-section {
+  padding: 72px 0;
+}
 
 .hero-grid{
   display: grid;
@@ -318,7 +320,7 @@ a{ color: inherit; text-decoration: none; }
 /* =========================================================
    SECTIONS (shared)
 ========================================================= */
-.section{ padding: 96px 0; }
+.section{ padding: 72px 0; }
 .section-alt{ background: var(--bg-alt); }
 
 .section-head{
@@ -587,30 +589,40 @@ a{ color: inherit; text-decoration: none; }
 /* Pinterest-style masonry via CSS columns — no JS required.
    Add more <figure class="gallery-item ..."> blocks any time; the
    grid reflows to fit them. */
-.gallery-grid{
-  column-count: 3;
-  column-gap: 16px;
+.gallery-grid {
+  column-count: 4;
+  column-gap: 12px;
 }
 
-.gallery-item{
-  margin: 0 0 16px;
+.gallery-item {
+  margin: 0 0 12px;
   break-inside: avoid;
 }
 
-.gallery-item .photo-frame{
+.gallery-item .photo-frame {
   aspect-ratio: auto;
   height: auto;
   padding: 0;
 }
 
-.gallery-item .photo-placeholder{
-  display: flex;
+/* Tablet */
+@media (max-width: 860px) {
+  .gallery-grid {
+    column-count: 3;
+  }
 }
 
-.gallery-item.tile-square .photo-frame{ aspect-ratio: 1 / 1; }
-.gallery-item.tile-tall .photo-frame{ aspect-ratio: 3 / 4; }
-.gallery-item.tile-wide .photo-frame{ aspect-ratio: 4 / 3; }
+/* Phone */
+@media (max-width: 600px) {
+  .gallery-grid {
+    column-count: 2;
+    column-gap: 10px;
+  }
 
+  .gallery-item {
+    margin-bottom: 10px;
+  }
+}
 /* =========================================================
    TIMELINE
 ========================================================= */
@@ -956,4 +968,92 @@ a:focus-visible, button:focus-visible{
 
 @media (prefers-reduced-motion: reduce){
   .floral-border{ opacity: 0.7; }
+}
+
+/* =========================================================
+   SMALLER PROJECT IMAGES
+========================================================= */
+
+.proj-figure {
+  max-width: 560px;
+  margin: 32px auto;
+}
+
+.proj-figure .photo-frame {
+  width: 100%;
+}
+
+.proj-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.proj-figure figcaption {
+  margin-top: 10px;
+  font-size: 0.75rem;
+}
+
+/* Even smaller images when needed */
+.proj-figure--narrow {
+  max-width: 420px;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .proj-figure {
+    max-width: 100%;
+    margin: 24px auto;
+  }
+}
+/* =========================================================
+   SMARTCLOSET — SMALLER MEDIA
+========================================================= */
+
+/* Main SmartCloset image */
+.smartcloset-page .proj-hero-media {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.smartcloset-page .proj-hero-media .proj-figure {
+  max-width: 520px;
+  margin: 32px auto;
+}
+
+/* Images inside the project */
+.smartcloset-page .proj-content .proj-figure {
+  max-width: 480px;
+  margin: 30px auto;
+}
+
+/* Images */
+.smartcloset-page .proj-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Videos */
+.smartcloset-page .proj-figure video {
+  width: 100% !important;
+  height: auto;
+  display: block;
+}
+
+/* Captions */
+.smartcloset-page .proj-figure figcaption {
+  font-size: 0.75rem;
+  margin-top: 8px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .smartcloset-page .proj-hero-media,
+  .smartcloset-page .proj-hero-media .proj-figure,
+  .smartcloset-page .proj-content .proj-figure {
+    max-width: 100%;
+  }
 }
